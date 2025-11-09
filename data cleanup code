@@ -1,0 +1,40 @@
+import pandas as pd
+import re
+from sklearn.preprocessing import LabelEncoder
+
+df = pd.read_csv("Tweets.csv")
+
+#clean all columns  
+df['airline'] = df['airline'].str.strip().str.lower()
+df['airline_sentiment'] = df['airline_sentiment'].str.strip().str.lower()
+
+#parse through
+df['tweet_created'] = pd.to_datetime(df['tweet_created'], errors='coerce')
+
+#clean all text data 
+df['clean_text'] = (
+    df['text']
+    .str.lower()
+    .str.replace(r"http\S+","",regex=True)
+    .str.replace(r"@\w+","",regex=True)
+    .str.replace(r"[^a-z\s]","",regex=True)
+    .str.replace(r"\s+"," ",regex=True)
+    .str.strip()
+)
+
+df = df.drop_duplicates(subset=['tweet_id'])
+df = df[df['clean_text'].str.len() > 3]
+
+df['word_count'] = df['clean_text'].str.split().str.len()
+df['hashtag_count'] = df['text'].str.count(r"#\w+")
+df['mention_count'] = df['text'].str.count(r"@\w+")
+df['hour'] = df['tweet_created'].dt.hour
+df['day_of_week'] = df['tweet_created'].dt.day_name()
+
+#sentiment 
+le = LabelEncoder()
+df['sentiment_label'] = le.fit_transform(df['airline_sentiment'])
+
+df.to_csv("Tweets_cleaned.csv", index=False)
+
+df.head()
