@@ -1,0 +1,21 @@
+"""IS392 (451) – Step 3: Project Code Review
+Group F: Anika and Yash
+Date: November 11th 2025 
+
+Project: Twitter US Airline Sentiment Analysis
+
+Purpose:
+    To analyze and classify user sentiments (into either positive, neutral, or negative) from Twitter tweets about U.S. airlines. This code 
+    demonstrates data preprocessing/cleanup, exploratory data analysis, supervised text classification modeling, and evaluation. 
+
+Dataset:
+    Twitter US Airline Sentiment dataset: Source: https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment
+
+Expected Outputs:
+    Some of our expected outcomes include:
+    - Refined tweet text 
+    - Identification of key language patterns
+    - Frequency plots of common words per sentiment
+    - Text Classification Model Performance (TF-IDF)
+    - Evaluation metrics, including F1-score and confusion matrix
+"""
