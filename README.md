@@ -1,8 +1,16 @@
-# twitter-airline-sentiment-analysis
+# Project Step 3 – Code Review Submission
+IS392 (451) — Group F: Anika and Yash 
+Date: November 9th 2025
+
+# Project Title
+Twitter US Airline Sentiment Analysis
+
 Our group project for IS392, AI Text-Driven Analytics, involves developing a language processing model to predict the sentiment of a given Twitter user.
 
 
 To use the model, ensure that the Tweets.csv file is in the same directory as the Python script, or else the script won't be able to locate the csv file.
+
+
 
 ## Project Overview
 This project analyzes U.S. airline sentiments using tweets. We perform text preprocessing, exploratory data analysis, and build an initial classification 
